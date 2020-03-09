@@ -6,7 +6,7 @@ public class Cat {
         return name;
     }
 
-    public void setName(String puwok) {
+    public void setName() {
         this.name = name;
     }
 }

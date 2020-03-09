@@ -5,15 +5,18 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(AppConfig.class);
-        HelloWorld bean = 
-                (HelloWorld) applicationContext.getBean("helloworld");
+        // переписал без кастинга
+        HelloWorld bean =
+                applicationContext.getBean("helloworld", HelloWorld.class);
         HelloWorld bean1 =
-                (HelloWorld) applicationContext.getBean("helloworld");
+                applicationContext.getBean("helloworld", HelloWorld.class);
         Cat catBean =
-                (Cat)applicationContext.getBean("cat");
+                applicationContext.getBean("cat", Cat.class);
         Cat catBean1 =
-                (Cat)applicationContext.getBean("cat");
+                applicationContext.getBean("cat", Cat.class);
+        //true
         System.out.println(bean.equals(bean1));
+        //false
         System.out.println(catBean.equals(catBean1));
     }
 }

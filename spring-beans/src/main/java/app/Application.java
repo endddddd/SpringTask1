@@ -14,11 +14,10 @@ public class Application {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         for (int i = 0; i < 5; i++) {
+            //без кастинга
             AnimalsCage bean =
-                    (AnimalsCage) applicationContext.getBean(AnimalsCage.class);
+                    applicationContext.getBean("applic", AnimalsCage.class);
             bean.whatAnimalSay();
-           Timer beanTime = applicationContext.getBean(Timer.class);
-            System.out.println(beanTime.getTime());
 
         }
     }
